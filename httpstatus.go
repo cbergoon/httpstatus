@@ -59,14 +59,14 @@ type HTTPStatistics struct {
 	TLSHandshakeComplete bool
 
 	DNSLookup        time.Duration
-	TCPConnection    time.Duration 
+	TCPConnection    time.Duration
 	TLSHandshake     time.Duration
 	ServerProcessing time.Duration
 	ContentTransfer  time.Duration
 	NameLookup       time.Duration
 	Connect          time.Duration
 	PreTransfer      time.Duration
-	Starttransfer    time.Duration
+	StartTransfer    time.Duration
 	Total            time.Duration
 
 	SkippedDNS bool
@@ -331,7 +331,7 @@ func (c *HttpStatusTester) visit(url *url.URL, seq int) {
 		stat.NameLookup = t1.Sub(t0)
 		stat.Connect = t2.Sub(t0)
 		stat.PreTransfer = t3.Sub(t0)
-		stat.Starttransfer = t4.Sub(t0)
+		stat.StartTransfer = t4.Sub(t0)
 		stat.Total = t7.Sub(t0)
 	case "http":
 		stat.DNSLookup = t1.Sub(t0)
@@ -340,7 +340,7 @@ func (c *HttpStatusTester) visit(url *url.URL, seq int) {
 		stat.ContentTransfer = t7.Sub(t4)
 		stat.NameLookup = t1.Sub(t0)
 		stat.Connect = t3.Sub(t0)
-		stat.Starttransfer = t4.Sub(t0)
+		stat.StartTransfer = t4.Sub(t0)
 		stat.Total = t7.Sub(t0)
 	}
 

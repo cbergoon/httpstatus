@@ -13,10 +13,13 @@ func main() {
 		fmt.Println(err)
 	}
 
-	t.Insecure = false
+	t.Insecure = true
+	t.FourOnly = false
+	t.SixOnly = false
+
 	t.Run()
 	fmt.Printf("%+v", t)
 	for _, s := range t.Statistics {
-		fmt.Printf("%+v", s)
+		fmt.Printf("%+v\n\n", s)
 	}
 }
